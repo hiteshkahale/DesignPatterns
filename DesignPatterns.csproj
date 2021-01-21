@@ -42,11 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Memento\Editor.cs" />
+    <Compile Include="Memento\EditorState.cs" />
+    <Compile Include="Memento\History.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="State\BrushTool.cs" />
+    <Compile Include="State\Canvas.cs" />
+    <Compile Include="State\Eraser.cs" />
+    <Compile Include="State\ITool.cs" />
+    <Compile Include="State\SelectionTool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
