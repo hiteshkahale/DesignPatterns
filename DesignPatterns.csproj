@@ -42,6 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\AddCustomerCommand.cs" />
+    <Compile Include="Command\Button.cs" />
+    <Compile Include="Command\CustomerService.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Iterator\ArrayIterator.cs" />
+    <Compile Include="Iterator\BrowseHistory.cs" />
+    <Compile Include="Iterator\IIterator.cs" />
+    <Compile Include="Iterator\ListIterator.cs" />
     <Compile Include="Memento\Editor.cs" />
     <Compile Include="Memento\EditorState.cs" />
     <Compile Include="Memento\History.cs" />
@@ -52,6 +60,16 @@
     <Compile Include="State\Eraser.cs" />
     <Compile Include="State\ITool.cs" />
     <Compile Include="State\SelectionTool.cs" />
+    <Compile Include="Strategy\BlackAndWhiteFilter.cs" />
+    <Compile Include="Strategy\ICompressor.cs" />
+    <Compile Include="Strategy\IFilter.cs" />
+    <Compile Include="Strategy\ImageStorage.cs" />
+    <Compile Include="Strategy\JpegCompressor.cs" />
+    <Compile Include="Strategy\PngCompressor.cs" />
+    <Compile Include="Template\AuditTrail.cs" />
+    <Compile Include="Template\GenerateReportTask.cs" />
+    <Compile Include="Template\Task.cs" />
+    <Compile Include="Template\TransferMoneyTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
