@@ -1,7 +1,11 @@
 ﻿using DesignPatterns.Adapter;
+using DesignPatterns.Bridge;
 using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.Command;
 using DesignPatterns.Composite;
+using DesignPatterns.Decorator;
+using DesignPatterns.Facade;
+using DesignPatterns.FlyWeight;
 using DesignPatterns.Iterator;
 using DesignPatterns.Mediator;
 using DesignPatterns.Memento;
@@ -14,6 +18,12 @@ using System;
 
 namespace DesignPatterns
 {
+
+	/// <summary>
+	/// Design Patterns Implementation
+	/// Structural Design Pattern- Adapter, Bridge, Composite, Decorator, Facade, FlyWeight
+	/// Behavioral Design Pattern- Chain of Responsibility, Command, Iterator, Mediator, Memento, Observer, State, Strategy, Template, Visitor
+	/// </summary>
 	class Program
 	{
 		static void Main(string[] args)
@@ -29,9 +39,55 @@ namespace DesignPatterns
 			// ExecuteChainOfResponsibility();
 			// ExecuteVisitor();
 			// ExecuteComposite();
-			ExecuteAdapter();
+			// ExecuteAdapter();
+			// ExecuteDecorator();
+			// ExecuteBridge();
+			// ExecuteFacade();
+			ExecuteFlyWeight();
 			Console.ReadLine();
 		}
+
+		#region FlyWeight Design Pattern
+
+		private static void ExecuteFlyWeight()
+		{
+			var factory = new PointIconFactory();
+			var pointService = new PointService(factory);
+			foreach (var p in pointService.GetPoints()) p.Draw();
+		}
+
+		#endregion
+
+		#region Facade Design Pattern
+
+		private static void ExecuteFacade()
+		{
+			var service = new NotificationService();
+			service.Send("abc", "target");
+		}
+
+		#endregion
+
+		#region Bridge Design Pattern
+
+		private static void ExecuteBridge()
+		{
+			//var remote = new AdvancedRemoteControl(new SonyTV());
+			var remote = new AdvancedRemoteControl(new SamsungTV());
+			remote.SetChannel(4);
+		}
+
+		#endregion
+
+		#region Decorator Design Pattern
+
+		private static void ExecuteDecorator()
+		{
+			var stream = new EncryptedCloudStream(new CompressedCloudStream(new CloudStream()));
+			stream.Write("1234-1234-1234-1234");
+		}
+
+		#endregion
 
 		#region Adapter Design Pattern 
 
