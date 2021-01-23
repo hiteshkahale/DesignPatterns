@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChainOfResponsibility\Authenticator.cs" />
+    <Compile Include="ChainOfResponsibility\Compressor.cs" />
+    <Compile Include="ChainOfResponsibility\Handler.cs" />
+    <Compile Include="ChainOfResponsibility\HttpRequest.cs" />
+    <Compile Include="ChainOfResponsibility\Logger.cs" />
+    <Compile Include="ChainOfResponsibility\WebServer.cs" />
     <Compile Include="Command\AddCustomerCommand.cs" />
     <Compile Include="Command\Button.cs" />
     <Compile Include="Command\CustomerService.cs" />
@@ -80,6 +86,13 @@
     <Compile Include="Template\GenerateReportTask.cs" />
     <Compile Include="Template\Task.cs" />
     <Compile Include="Template\TransferMoneyTask.cs" />
+    <Compile Include="Visitor\AnchorNode.cs" />
+    <Compile Include="Visitor\HeadingNode.cs" />
+    <Compile Include="Visitor\HighlighOperation.cs" />
+    <Compile Include="Visitor\HtmlDocument.cs" />
+    <Compile Include="Visitor\IHtmlNode.cs" />
+    <Compile Include="Visitor\IOperation.cs" />
+    <Compile Include="Visitor\PlainTextOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

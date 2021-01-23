@@ -1,4 +1,5 @@
-﻿using DesignPatterns.Command;
+﻿using DesignPatterns.ChainOfResponsibility;
+using DesignPatterns.Command;
 using DesignPatterns.Iterator;
 using DesignPatterns.Mediator;
 using DesignPatterns.Memento;
@@ -6,6 +7,7 @@ using DesignPatterns.Observer;
 using DesignPatterns.State;
 using DesignPatterns.Strategy;
 using DesignPatterns.Template;
+using DesignPatterns.Visitor;
 using System;
 
 namespace DesignPatterns
@@ -21,9 +23,41 @@ namespace DesignPatterns
 			// ExecuteTemplate();
 			// ExecuteCommand();
 			// ExecuteObserver();
-			ExecuteMediator();
+			// ExecuteMediator();
+			// ExecuteChainOfResponsibility();
+			ExecuteVisitor();
 			Console.ReadLine();
 		}
+
+		#region Visitor Design Pattern
+
+		private static void ExecuteVisitor()
+		{
+			var htmlDocument = new HtmlDocument();
+			htmlDocument.Add(new AnchorNode());
+			htmlDocument.Add(new HeadingNode());
+			//var highlightOperation = new HighlighOperation();
+			var textOperation = new PlainTextOperation();
+			htmlDocument.Execute(textOperation);
+		}
+
+		#endregion
+
+		#region Chain Of Responsibility
+
+		private static void ExecuteChainOfResponsibility()
+		{
+			// Authenticator -> Logger -> Compressor
+			var compressor = new Compressor(null);
+			var logger = new Logger(compressor);
+			var authenticator = new Authenticator(logger);
+			var request = new HttpRequest("hitesh", "abc");
+			
+			var server = new WebServer(authenticator);
+			server.Handle(request);
+		}
+
+		#endregion
 
 		#region Mediator Design Pattern
 
