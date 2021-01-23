@@ -1,5 +1,7 @@
-﻿using DesignPatterns.ChainOfResponsibility;
+﻿using DesignPatterns.Adapter;
+using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.Command;
+using DesignPatterns.Composite;
 using DesignPatterns.Iterator;
 using DesignPatterns.Mediator;
 using DesignPatterns.Memento;
@@ -25,9 +27,42 @@ namespace DesignPatterns
 			// ExecuteObserver();
 			// ExecuteMediator();
 			// ExecuteChainOfResponsibility();
-			ExecuteVisitor();
+			// ExecuteVisitor();
+			// ExecuteComposite();
+			ExecuteAdapter();
 			Console.ReadLine();
 		}
+
+		#region Adapter Design Pattern 
+
+		private static void ExecuteAdapter()
+		{
+			var imageView = new ImageView(new Image());
+			imageView.Apply(new VividFilter());
+			imageView.Apply(new CaramelFilter());
+		}
+
+		#endregion
+
+		#region Composite Design Pattern
+
+		private static void ExecuteComposite()
+		{
+			var group1 = new Group();
+			group1.Add(new Shape());
+			group1.Add(new Shape());
+
+			var group2 = new Group();
+			group2.Add(new Shape());
+			group2.Add(new Shape());
+
+			var group = new Group();
+			group.Add(group1);
+			group.Add(group2);
+			group.Render();
+		}
+
+		#endregion
 
 		#region Visitor Design Pattern
 

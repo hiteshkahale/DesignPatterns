@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\CaramelFilter.cs" />
+    <Compile Include="Adapter\IFilter.cs" />
+    <Compile Include="Adapter\Image.cs" />
+    <Compile Include="Adapter\ImageView.cs" />
+    <Compile Include="Adapter\Lib\Caramel.cs" />
+    <Compile Include="Adapter\VividFilter.cs" />
     <Compile Include="ChainOfResponsibility\Authenticator.cs" />
     <Compile Include="ChainOfResponsibility\Compressor.cs" />
     <Compile Include="ChainOfResponsibility\Handler.cs" />
@@ -52,6 +58,9 @@
     <Compile Include="Command\Button.cs" />
     <Compile Include="Command\CustomerService.cs" />
     <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Composite\Group.cs" />
+    <Compile Include="Composite\IComponent.cs" />
+    <Compile Include="Composite\Shape.cs" />
     <Compile Include="Iterator\ArrayIterator.cs" />
     <Compile Include="Iterator\BrowseHistory.cs" />
     <Compile Include="Iterator\IIterator.cs" />
