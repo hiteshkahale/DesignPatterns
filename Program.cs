@@ -1,6 +1,8 @@
 ﻿using DesignPatterns.Command;
 using DesignPatterns.Iterator;
+using DesignPatterns.Mediator;
 using DesignPatterns.Memento;
+using DesignPatterns.Observer;
 using DesignPatterns.State;
 using DesignPatterns.Strategy;
 using DesignPatterns.Template;
@@ -17,9 +19,36 @@ namespace DesignPatterns
 			// ExecuteIterator();
 			// ExecuteStrategy();
 			// ExecuteTemplate();
-			ExecuteCommand();
+			// ExecuteCommand();
+			// ExecuteObserver();
+			ExecuteMediator();
 			Console.ReadLine();
 		}
+
+		#region Mediator Design Pattern
+
+		private static void ExecuteMediator()
+		{
+			var dialog = new ArticlesDialogBox();
+			dialog.SimulateUserInteraction();
+		}
+
+		#endregion
+
+		#region Observer Design Pattern
+
+		private static void ExecuteObserver()
+		{
+			var spreadSheet = new SpreadSheet();
+			var chart = new Chart();
+			var dataSource = new DataSource();
+			dataSource.AddObserver(spreadSheet);
+			dataSource.AddObserver(chart);
+
+			dataSource.Value = 3;
+		}
+
+		#endregion
 
 		#region Memento Design Pattern
 
@@ -99,13 +128,13 @@ namespace DesignPatterns
 
 		#endregion
 
-		#region
+		#region Command Desing Pattern
 
 		private static void ExecuteCommand()
 		{
 			var customerService = new CustomerService();
 			var addCustomerCommand = new AddCustomerCommand(customerService);
-			var button = new Button(addCustomerCommand);
+			var button = new Command.Button(addCustomerCommand);
 
 			button.Click();
 		}
